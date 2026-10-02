@@ -1,88 +1,58 @@
-// Extron Nigeria Limited - Website JavaScript
+const navToggle = document.getElementById("navToggle");
+const mainNav = document.getElementById("mainNav");
 
-document.addEventListener("DOMContentLoaded", function () {
+if (navToggle && mainNav) {
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!expanded));
+    mainNav.classList.toggle("open");
+  });
+}
 
-    // Mobile navigation
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", function () {
-            navMenu.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-        });
-    }
+const slides = document.querySelectorAll(".hero-img");
+let currentSlide = 0;
 
-    // Close mobile menu when a navigation link is clicked
-    const navLinks = document.querySelectorAll(".nav-menu a");
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 4000);
+}
 
-    navLinks.forEach(function (link) {
-        link.addEventListener("click", function () {
-            if (navMenu) {
-                navMenu.classList.remove("active");
-            }
+const galleryButtons = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("lightbox");
+const lbImage = document.querySelector(".lb-image");
+const lbCaption = document.querySelector(".lb-caption");
+const lbClose = document.querySelector(".lb-close");
 
-            if (menuToggle) {
-                menuToggle.classList.remove("active");
-            }
-        });
+if (galleryButtons.length && lightbox && lbImage && lbCaption && lbClose) {
+  galleryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const src = button.dataset.src || button.querySelector("img")?.src || "";
+      const alt = button.querySelector("img")?.alt || "Gallery image";
+      lbImage.src = src;
+      lbImage.alt = alt;
+      lbCaption.textContent = alt;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
     });
+  });
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener("click", function (event) {
-            const targetId = this.getAttribute("href");
+  lbClose.addEventListener("click", () => {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+  });
 
-            if (targetId && targetId !== "#") {
-                const target = document.querySelector(targetId);
-
-                if (target) {
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            }
-        });
-    });
-
-    // Newsletter form
-    const newsletterForm = document.querySelector(".newsletter-form");
-
-    if (newsletterForm) {
-        newsletterForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-
-            if (emailInput && emailInput.value.trim() !== "") {
-                alert("Thank you for subscribing to Extron Nigeria Limited.");
-
-                emailInput.value = "";
-            }
-        });
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
     }
-
-    // Contact form
-    const contactForm = document.querySelector("#contact-form");
-
-    if (contactForm) {
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            alert("Thank you for contacting Extron Nigeria Limited. We will get back to you soon.");
-
-            contactForm.reset();
-        });
-    }
-
-    // Current year in footer
-    const yearElement = document.querySelector("#current-year");
-
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-
-});
+  });
+}
