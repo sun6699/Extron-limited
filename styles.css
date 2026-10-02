@@ -292,6 +292,10 @@ button {
 }
 
 .info-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 27px 20px;
     border-right: 1px solid rgba(255, 255, 255, 0.15);
