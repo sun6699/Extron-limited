@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Extron Nigeria Limited</title>
+  <meta name="description" content="Contact Extron Nigeria Limited for engineering and project management inquiries.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Extron Nigeria Limited Logo">
+        <span>Extron Nigeria</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Get In Touch</h1>
+        <p>Contact us for inquiries and project discussions</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <div class="contact-card">
+          <h3>Send us a Message</h3>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3>Contact Information</h3>
+
+          <div class="contact-info-block">
+            <h4>Port Harcourt Office</h4>
+            <p>14/50 Port-Harcourt/Aba Expressway</p>
+            <p>Port Harcourt, Rivers State, Nigeria</p>
+            <p><strong>Tel:</strong> +234 7036662572</p>
+            <p><strong>Reg:</strong> RC 864056</p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Lagos Office</h4>
+            <p>Plot 7, Block 3, Danny's Court</p>
+            <p>Southern View Estate, Eleganza Bus Stop</p>
+            <p>Ikota-Ajah, Lagos State, Nigeria</p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Atlanta Office</h4>
+            <p>235 Peachtree Street NE, Ste 400</p>
+            <p>Atlanta, GA 30303, USA</p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Email Newsletter</h4>
+            <p>Subscribe to our newsletter for updates:</p>
+            <form id="newsletterForm" class="newsletter-form">
+              <input type="email" name="email" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-secondary">Subscribe</button>
+            </form>
+            <div id="newsletterStatus" class="form-status"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Extron Nigeria Limited</h4>
+        <p>Engineering Excellence & Project Management Services</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Offices</h4>
+        <p>Port Harcourt • Lagos • Atlanta</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024 Extron Nigeria Limited. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
