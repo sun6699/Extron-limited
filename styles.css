@@ -97,11 +97,137 @@ a { text-decoration: none; color: inherit; }
   color: var(--primary-dark);
   font-weight: 600;
   transition: color 0.2s ease;
+  position: relative;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--accent);
+}
+
+/* Premium Mega Menu Dropdown */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.nav-item-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-item-dropdown > a::after {
+  content: "▼";
+  font-size: 0.65rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-item-dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 900px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 0.8rem;
+  box-shadow: 0 20px 50px rgba(12, 32, 52, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 2000;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: none;
+  background: var(--white);
+  position: relative;
+}
+
+.dropdown-menu a::before {
+  content: "";
+  width: 3px;
+  height: 0;
+  background: var(--accent);
+  transition: height 0.3s ease;
+  margin-top: 0.3rem;
+}
+
+.dropdown-menu a:hover {
+  background: var(--light);
+  color: var(--accent);
+  padding-left: 2rem;
+}
+
+.dropdown-menu a:hover::before {
+  height: 1.2rem;
+}
+
+.dropdown-menu a span {
+  display: block;
+}
+
+.dropdown-menu a span:first-child {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.dropdown-menu a span:last-child {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 0.2rem;
+}
+
+/* Mega Menu Footer */
+.dropdown-menu::after {
+  content: "";
+  grid-column: 1 / -1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+.dropdown-menu-footer {
+  grid-column: 1 / -1;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(15, 59, 92, 0.02) 0%, rgba(216, 154, 39, 0.02) 100%);
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.dropdown-menu-footer a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .hamburger {
@@ -201,6 +327,18 @@ a { text-decoration: none; color: inherit; }
   background: rgba(255,255,255,0.1);
 }
 
+.service-link-btn {
+  color: var(--accent);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.service-link-btn:hover {
+  transform: translateX(4px);
+}
+
 .company-info-bar {
   background: var(--primary);
   color: var(--white);
@@ -295,6 +433,169 @@ a { text-decoration: none; color: inherit; }
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   margin-bottom: 1rem;
+}
+
+/* Service Featured Grid */
+.services-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.service-featured-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-featured-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.service-featured-card:hover {
+  box-shadow: 0 16px 40px rgba(12, 32, 52, 0.15);
+  transform: translateY(-4px);
+}
+
+.service-featured-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.service-featured-card h3 {
+  color: var(--primary);
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.service-featured-card > p {
+  color: var(--muted);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.service-featured-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.service-featured-card li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  color: var(--muted);
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.service-featured-card li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Services Core Grid */
+.services-core-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.core-service {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.core-service:hover {
+  border-left-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(12, 32, 52, 0.12);
+}
+
+.core-service h4 {
+  color: var(--primary);
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.core-service p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Service Lifecycle */
+.service-lifecycle {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+}
+
+.lifecycle-step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 auto 0.75rem;
+  box-shadow: 0 4px 12px rgba(12, 32, 52, 0.15);
+}
+
+.lifecycle-step h4 {
+  color: var(--primary);
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.lifecycle-step p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.lifecycle-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -0.75rem;
+  top: 24px;
+  width: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 .benefits-grid {
@@ -445,6 +746,25 @@ a { text-decoration: none; color: inherit; }
   color: var(--muted);
 }
 
+.cta-block {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(15, 59, 92, 0.05) 0%, rgba(216, 154, 39, 0.05) 100%);
+  border-radius: 1rem;
+  border: 2px solid var(--border);
+}
+
+.cta-block h2 {
+  margin: 0 0 1rem;
+  color: var(--primary);
+}
+
+.cta-block p {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 .site-footer {
   background: #0c2031;
   color: var(--white);
@@ -487,6 +807,34 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
+@media (max-width: 1200px) {
+  .dropdown-menu {
+    min-width: 750px;
+  }
+
+  .services-featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-lifecycle {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .lifecycle-step:nth-child(4n)::after {
+    display: none;
+  }
+
+  .lifecycle-step:nth-child(n+5)::before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: -1rem;
+    width: 2px;
+    height: 1rem;
+    background: linear-gradient(180deg, var(--accent), transparent);
+  }
+}
+
 @media (max-width: 980px) {
   .cards-grid,
   .team-grid,
@@ -497,6 +845,19 @@ a { text-decoration: none; color: inherit; }
   .split-grid,
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-core-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown-menu {
+    min-width: 600px;
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown-menu a {
+    padding: 1rem;
   }
 }
 
@@ -518,8 +879,44 @@ a { text-decoration: none; color: inherit; }
     display: flex;
   }
 
+  .main-nav a {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
   .hamburger {
     display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: var(--light);
+    border: none;
+    border-top: none;
+    box-shadow: none;
+    margin: 0.5rem 0 0 0;
+    min-width: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown-menu a {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .dropdown-menu a span {
+    font-size: 0.85rem;
+  }
+
+  .dropdown-menu a span:first-child {
+    font-size: 0.95rem;
+  }
+
+  .nav-item-dropdown:hover .dropdown-menu {
+    transform: none;
   }
 
   .cards-grid,
@@ -534,139 +931,54 @@ a { text-decoration: none; color: inherit; }
     grid-template-columns: 1fr;
   }
 
+  .service-lifecycle {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .lifecycle-step:not(:last-child)::after {
+    display: none;
+  }
+
+  .lifecycle-step:nth-child(odd)::before {
+    content: "";
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    width: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .lifecycle-step:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    width: 2rem;
+    height: 2px;
+    background: linear-gradient(270deg, var(--accent), transparent);
+  }
+
   .hero {
     min-height: 520px;
   }
+
+  .services-featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .lifecycle-step h4 {
+    font-size: 0.85rem;
+  }
+
+  .lifecycle-step p {
+    font-size: 0.75rem;
+  }
 }
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inspection, Testing & Commissioning Support | Extron Nigeria Limited</title>
-  <meta name="description" content="Inspection, testing and commissioning support across engineering, procurement, installation and maintenance for oil and gas projects.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Extron Nigeria Limited Logo">
-        <span>Extron Nigeria</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="team.html">Team</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>Inspection, Testing & Commissioning Support</h1>
-        <p>Project lifecycle support from engineering through maintenance and integrity management</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="content-box">
-          <p>Our technical support extends across the project lifecycle, including engineering → procurement → inspection → installation → testing → commissioning → maintenance → integrity management. Services may include factory acceptance testing (FAT), site acceptance testing (SAT), equipment inspection, instrument calibration, loop checking, pressure testing, functional testing, pre-commissioning, commissioning support, equipment verification and technical documentation.</p>
-          <p>We assist clients to ensure installed systems meet design intent, regulatory standards and safe operational requirements before handover and operational deployment.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Lifecycle Support Services</h2>
-        </div>
-
-        <div class="services-list">
-          <div class="service-item">
-            <h3>Inspection & Verification</h3>
-            <ul>
-              <li>Equipment inspection and verification</li>
-              <li>Factory acceptance testing</li>
-              <li>Site acceptance testing</li>
-              <li>Technical compliance review</li>
-            </ul>
-          </div>
-
-          <div class="service-item">
-            <h3>Calibration & Loop Checking</h3>
-            <ul>
-              <li>Instrument calibration</li>
-              <li>Loop checking</li>
-              <li>Functional testing</li>
-              <li>Control system validation</li>
-            </ul>
-          </div>
-
-          <div class="service-item">
-            <h3>Commissioning Support</h3>
-            <ul>
-              <li>Pre-commissioning support</li>
-              <li>Commissioning support</li>
-              <li>Equipment verification</li>
-              <li>Documentation and punch-list tracking</li>
-            </ul>
-          </div>
-
-          <div class="service-item">
-            <h3>Documentation & Handover</h3>
-            <ul>
-              <li>Technical documentation</li>
-              <li>As-built documentation support</li>
-              <li>Maintenance planning</li>
-              <li>Operational handover preparation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>Extron Nigeria Limited</h4>
-        <p>Engineering Excellence & Project Management Services</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>+234 7036662572</p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; 2024 Extron Nigeria Limited. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>

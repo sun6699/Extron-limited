@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Extron Nigeria Limited</title>
-  <meta name="description" content="Contact Extron Nigeria Limited for engineering and project management inquiries.">
+  <meta name="description" content="Contact Extron Nigeria Limited for engineering, inspection, integrity, and project management inquiries.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +18,23 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+
+        <div class="nav-item-dropdown">
+          <a href="services.html">Services</a>
+          <div class="dropdown-menu">
+            <a href="drilling-well-engineering.html"><span>Drilling &amp; Well Engineering</span><span>Planning, support, and intervention solutions</span></a>
+            <a href="inspection-ndt-services.html"><span>Oilfield Inspection &amp; NDT</span><span>Testing, inspection, and integrity verification</span></a>
+            <a href="asset-integrity-management.html"><span>Well &amp; Asset Integrity</span><span>Reliability, corrosion, and performance management</span></a>
+            <a href="services.html#instrumentation"><span>Instrumentation &amp; Control</span><span>Automation, calibration, and monitoring systems</span></a>
+            <a href="technical-procurement.html"><span>Technical Procurement</span><span>Quality sourcing and project delivery support</span></a>
+            <a href="engineering-manpower.html"><span>Engineering Manpower</span><span>Skilled technical specialists and project support</span></a>
+            <a href="inspection-testing-commissioning.html"><span>Testing &amp; Commissioning</span><span>Pre-commissioning, FAT, SAT, and handover support</span></a>
+            <div class="dropdown-menu-footer">
+              <a href="services.html">View all services</a>
+            </div>
+          </div>
+        </div>
+
         <a href="team.html">Team</a>
         <a href="contact.html" class="active">Contact</a>
       </nav>
@@ -33,7 +49,7 @@
     <section class="page-hero">
       <div class="container">
         <h1>Get In Touch</h1>
-        <p>Contact us for inquiries and project discussions</p>
+        <p>We are ready to support your next engineering and project management requirement.</p>
       </div>
     </section>
 
@@ -49,16 +65,13 @@
               <input type="email" name="email" placeholder="Your Email" required>
             </div>
             <div class="form-group">
-              <input type="tel" name="phone" placeholder="Phone Number">
+              <input type="text" name="subject" placeholder="Subject">
             </div>
             <div class="form-group">
-              <input type="text" name="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group">
-              <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+              <textarea name="message" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
-            <div id="formStatus" class="form-status"></div>
+            <div id="formStatus" class="form-status" aria-live="polite"></div>
           </form>
         </div>
 
@@ -66,35 +79,76 @@
           <h3>Contact Information</h3>
 
           <div class="contact-info-block">
-            <h4>Port Harcourt Office</h4>
-            <p>14/50 Port-Harcourt/Aba Expressway</p>
+            <h4>Head Office</h4>
+            <p>Extron Nigeria Limited</p>
             <p>Port Harcourt, Rivers State, Nigeria</p>
-            <p><strong>Tel:</strong> +234 7036662572</p>
-            <p><strong>Reg:</strong> RC 864056</p>
           </div>
 
           <div class="contact-info-block">
-            <h4>Lagos Office</h4>
-            <p>Plot 7, Block 3, Danny's Court</p>
-            <p>Southern View Estate, Eleganza Bus Stop</p>
-            <p>Ikota-Ajah, Lagos State, Nigeria</p>
+            <h4>Call Us</h4>
+            <p>+234 7036662572</p>
           </div>
 
           <div class="contact-info-block">
-            <h4>Atlanta Office</h4>
-            <p>235 Peachtree Street NE, Ste 400</p>
-            <p>Atlanta, GA 30303, USA</p>
+            <h4>Email</h4>
+            <p>info@extronng.com</p>
           </div>
 
           <div class="contact-info-block">
-            <h4>Email Newsletter</h4>
-            <p>Subscribe to our newsletter for updates:</p>
-            <form id="newsletterForm" class="newsletter-form">
-              <input type="email" name="email" placeholder="Enter your email" required>
-              <button type="submit" class="btn btn-secondary">Subscribe</button>
-            </form>
-            <div id="newsletterStatus" class="form-status"></div>
+            <h4>Business Hours</h4>
+            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+            <p>Saturday: By appointment</p>
           </div>
+
+          <div class="contact-info-block">
+            <h4>Project Inquiries</h4>
+            <p>For engineering, inspection, procurement, and project management discussions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Offices</h2>
+          <p>Supporting operations across strategic locations</p>
+        </div>
+
+        <div class="services-core-grid">
+          <div class="core-service">
+            <h4>Port Harcourt</h4>
+            <p>Primary operational hub for field support, engineering coordination, and technical project execution.</p>
+          </div>
+          <div class="core-service">
+            <h4>Lagos</h4>
+            <p>Commercial support and client engagement for business development and technical coordination.</p>
+          </div>
+          <div class="core-service">
+            <h4>Atlanta</h4>
+            <p>Strategic international support aligned with global engineering and project delivery requirements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <div class="contact-card">
+          <h3>Subscribe to updates</h3>
+          <form id="newsletterForm" class="newsletter-form">
+            <div class="form-group">
+              <input type="email" name="newsletterEmail" placeholder="Your Email Address" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+            <div id="newsletterStatus" class="form-status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3>Need a quick response?</h3>
+          <p>Tell us about your scope, location, and project requirements and our team will reach out promptly.</p>
+          <a href="mailto:info@extronng.com" class="btn btn-secondary" style="margin-top: 0.75rem;">Email Us</a>
         </div>
       </div>
     </section>
@@ -104,7 +158,8 @@
     <div class="container footer-grid">
       <div>
         <h4>Extron Nigeria Limited</h4>
-        <p>Engineering Excellence & Project Management Services</p>
+        <p>Engineering Excellence &amp; Project Management Services</p>
+        <p>RC 864056</p>
       </div>
       <div>
         <h4>Quick Links</h4>
@@ -117,7 +172,14 @@
       </div>
       <div>
         <h4>Our Offices</h4>
-        <p>Port Harcourt • Lagos • Atlanta</p>
+        <p>Port Harcourt</p>
+        <p>Lagos</p>
+        <p>Atlanta</p>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <p>+234 7036662572</p>
+        <p>info@extronng.com</p>
       </div>
     </div>
     <div class="container footer-bottom">
