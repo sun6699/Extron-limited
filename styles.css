@@ -97,11 +97,77 @@ a { text-decoration: none; color: inherit; }
   color: var(--primary-dark);
   font-weight: 600;
   transition: color 0.2s ease;
+  position: relative;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--accent);
+}
+
+/* Services Dropdown Menu */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.nav-item-dropdown > a::after {
+  content: "▼";
+  font-size: 0.65rem;
+  margin-left: 0.4rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-item-dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 280px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 24px rgba(12, 32, 52, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 2000;
+  margin-top: 0.5rem;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-menu a:hover {
+  background: var(--light);
+  color: var(--accent);
+  border-left-color: var(--accent);
+  padding-left: 1.25rem;
+}
+
+.dropdown-menu a:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.dropdown-menu a:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .hamburger {
@@ -487,6 +553,47 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
+/* Services List Styling */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.service-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.service-item h3 {
+  color: var(--primary);
+  margin-top: 0;
+}
+
+.service-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-item li {
+  padding: 0.5rem 0;
+  color: var(--muted);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.service-item li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 @media (max-width: 980px) {
   .cards-grid,
   .team-grid,
@@ -497,6 +604,27 @@ a { text-decoration: none; color: inherit; }
   .split-grid,
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: var(--light);
+    border: none;
+    border-top: none;
+    box-shadow: none;
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+
+  .nav-item-dropdown:hover .dropdown-menu {
+    transform: none;
+  }
+
+  .services-list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -518,8 +646,35 @@ a { text-decoration: none; color: inherit; }
     display: flex;
   }
 
+  .main-nav a {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
   .hamburger {
     display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-top: none;
+    box-shadow: none;
+    margin: 0.5rem 0 0 0;
+    min-width: auto;
+  }
+
+  .dropdown-menu a {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-item-dropdown:hover .dropdown-menu {
+    transform: none;
   }
 
   .cards-grid,
@@ -537,136 +692,8 @@ a { text-decoration: none; color: inherit; }
   .hero {
     min-height: 520px;
   }
+
+  .services-list {
+    grid-template-columns: 1fr;
+  }
 }
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inspection, Testing & Commissioning Support | Extron Nigeria Limited</title>
-  <meta name="description" content="Inspection, testing and commissioning support across engineering, procurement, installation and maintenance for oil and gas projects.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Extron Nigeria Limited Logo">
-        <span>Extron Nigeria</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="team.html">Team</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>Inspection, Testing & Commissioning Support</h1>
-        <p>Project lifecycle support from engineering through maintenance and integrity management</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="content-box">
-          <p>Our technical support extends across the project lifecycle, including engineering → procurement → inspection → installation → testing → commissioning → maintenance → integrity management. Services may include factory acceptance testing (FAT), site acceptance testing (SAT), equipment inspection, instrument calibration, loop checking, pressure testing, functional testing, pre-commissioning, commissioning support, equipment verification and technical documentation.</p>
-          <p>We assist clients to ensure installed systems meet design intent, regulatory standards and safe operational requirements before handover and operational deployment.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Lifecycle Support Services</h2>
-        </div>
-
-        <div class="services-list">
-          <div class="service-item">
-            <h3>Inspection & Verification</h3>
-            <ul>
-              <li>Equipment inspection and verification</li>
-              <li>Factory acceptance testing</li>
-              <li>Site acceptance testing</li>
-              <li>Technical compliance review</li>
-            </ul>
-          </div>
-
-          <div class="service-item">
-            <h3>Calibration & Loop Checking</h3>
-            <ul>
-              <li>Instrument calibration</li>
-              <li>Loop checking</li>
-              <li>Functional testing</li>
-              <li>Control system validation</li>
-            </ul>
-          </div>
-
-          <div class="service-item">
-            <h3>Commissioning Support</h3>
-            <ul>
-              <li>Pre-commissioning support</li>
-              <li>Commissioning support</li>
-              <li>Equipment verification</li>
-              <li>Documentation and punch-list tracking</li>
-            </ul>
-          </div>
-
-          <div class="service-item">
-            <h3>Documentation & Handover</h3>
-            <ul>
-              <li>Technical documentation</li>
-              <li>As-built documentation support</li>
-              <li>Maintenance planning</li>
-              <li>Operational handover preparation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>Extron Nigeria Limited</h4>
-        <p>Engineering Excellence & Project Management Services</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>+234 7036662572</p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; 2024 Extron Nigeria Limited. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
