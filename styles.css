@@ -538,3 +538,135 @@ a { text-decoration: none; color: inherit; }
     min-height: 520px;
   }
 }
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspection, Testing & Commissioning Support | Extron Nigeria Limited</title>
+  <meta name="description" content="Inspection, testing and commissioning support across engineering, procurement, installation and maintenance for oil and gas projects.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Extron Nigeria Limited Logo">
+        <span>Extron Nigeria</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Inspection, Testing & Commissioning Support</h1>
+        <p>Project lifecycle support from engineering through maintenance and integrity management</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-box">
+          <p>Our technical support extends across the project lifecycle, including engineering → procurement → inspection → installation → testing → commissioning → maintenance → integrity management. Services may include factory acceptance testing (FAT), site acceptance testing (SAT), equipment inspection, instrument calibration, loop checking, pressure testing, functional testing, pre-commissioning, commissioning support, equipment verification and technical documentation.</p>
+          <p>We assist clients to ensure installed systems meet design intent, regulatory standards and safe operational requirements before handover and operational deployment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Lifecycle Support Services</h2>
+        </div>
+
+        <div class="services-list">
+          <div class="service-item">
+            <h3>Inspection & Verification</h3>
+            <ul>
+              <li>Equipment inspection and verification</li>
+              <li>Factory acceptance testing</li>
+              <li>Site acceptance testing</li>
+              <li>Technical compliance review</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Calibration & Loop Checking</h3>
+            <ul>
+              <li>Instrument calibration</li>
+              <li>Loop checking</li>
+              <li>Functional testing</li>
+              <li>Control system validation</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Commissioning Support</h3>
+            <ul>
+              <li>Pre-commissioning support</li>
+              <li>Commissioning support</li>
+              <li>Equipment verification</li>
+              <li>Documentation and punch-list tracking</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Documentation & Handover</h3>
+            <ul>
+              <li>Technical documentation</li>
+              <li>As-built documentation support</li>
+              <li>Maintenance planning</li>
+              <li>Operational handover preparation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Extron Nigeria Limited</h4>
+        <p>Engineering Excellence & Project Management Services</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>+234 7036662572</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024 Extron Nigeria Limited. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
