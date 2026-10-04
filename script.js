@@ -43,3 +43,23 @@ if (newsletterForm) {
     newsletterForm.reset();
   });
 }
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = contactForm.querySelector('input[name="name"]').value.trim();
+    const message = contactForm.querySelector('textarea[name="message"]').value.trim();
+
+    if (!name || !message) {
+      if (formStatus) formStatus.textContent = "Please complete the required fields.";
+      return;
+    }
+
+    if (formStatus) {
+      formStatus.textContent = "Thank you! Your message has been sent successfully.";
+    }
+
+    contactForm.reset();
+  });
+}
