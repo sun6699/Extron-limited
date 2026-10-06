@@ -248,14 +248,41 @@ a { text-decoration: none; color: inherit; }
   border-radius: 2px;
 }
 
+/* ==================== CUSTOM HERO BANNER ==================== */
 .hero {
   position: relative;
-  background:
-    linear-gradient(rgba(11, 41, 66, 0.7), rgba(11, 41, 66, 0.7)),
-    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  background: linear-gradient(135deg, #0f3b5c 0%, #1a4d71 50%, #0b2942 100%);
   min-height: 620px;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+/* Animated background pattern */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(216, 154, 39, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(26, 77, 113, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Decorative geometric shapes */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(216, 154, 39, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -263,37 +290,98 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
   color: var(--white);
   padding: 4rem 0;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Logo section */
+.hero-logo-section {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-box {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.hero-logo-box img {
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Text content section */
+.hero-copy {
+  flex: 1;
+  max-width: 600px;
+  animation: slideInRight 0.8s ease-out;
 }
 
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #dfeaf7;
   margin-bottom: 1rem;
-}
-
-.hero-copy {
-  max-width: 760px;
+  font-weight: 700;
 }
 
 .hero-copy h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  line-height: 1.1;
-  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero-copy p {
-  max-width: 700px;
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.9);
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 2rem;
+  line-height: 1.8;
 }
 
 .hero-actions {
-  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .btn {
@@ -315,6 +403,8 @@ a { text-decoration: none; color: inherit; }
 
 .btn-primary:hover {
   background: #c98712;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(216, 154, 39, 0.3);
 }
 
 .btn-secondary {
@@ -325,6 +415,8 @@ a { text-decoration: none; color: inherit; }
 
 .btn-secondary:hover {
   background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+  transform: translateY(-2px);
 }
 
 .service-link-btn {
@@ -435,63 +527,7 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 1rem;
 }
 
-/* ==================== CLIENTS LOGO GRID ==================== */
-.clients-logo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.client-logo-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.client-logo-card:hover {
-  box-shadow: 0 16px 40px rgba(12, 32, 52, 0.15);
-  transform: translateY(-6px);
-  border-color: var(--accent);
-}
-
-.client-logo-placeholder {
-  width: 100%;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(15, 59, 92, 0.05) 0%, rgba(216, 154, 39, 0.05) 100%);
-  border: 2px dashed var(--border);
-  border-radius: 0.75rem;
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-}
-
-.client-logo-placeholder img {
-  max-width: 90%;
-  max-height: 100px;
-  object-fit: contain;
-}
-
-.client-logo-card h3 {
-  color: var(--primary);
-  margin: 0 0 0.75rem;
-  font-size: 1.3rem;
-}
-
-.client-logo-card p {
-  color: var(--muted);
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* ==================== SERVICE FEATURED GRID ==================== */
+/* Service Featured Grid */
 .services-featured-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -821,6 +857,62 @@ a { text-decoration: none; color: inherit; }
   font-size: 1.05rem;
 }
 
+/* ==================== CLIENTS LOGO GRID ==================== */
+.clients-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.client-logo-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.client-logo-card:hover {
+  box-shadow: 0 16px 40px rgba(12, 32, 52, 0.15);
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.client-logo-placeholder {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(15, 59, 92, 0.05) 0%, rgba(216, 154, 39, 0.05) 100%);
+  border: 2px dashed var(--border);
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.client-logo-placeholder img {
+  max-width: 90%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.client-logo-card h3 {
+  color: var(--primary);
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.client-logo-card p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .site-footer {
   background: #0c2031;
   color: var(--white);
@@ -893,6 +985,20 @@ a { text-decoration: none; color: inherit; }
   .clients-logo-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-logo-box {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 980px) {
@@ -922,6 +1028,10 @@ a { text-decoration: none; color: inherit; }
 
   .clients-logo-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content {
+    flex-direction: column;
   }
 }
 
@@ -1026,6 +1136,20 @@ a { text-decoration: none; color: inherit; }
 
   .hero {
     min-height: 520px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-logo-box {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.8rem;
   }
 
   .services-featured-grid {
