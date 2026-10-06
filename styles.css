@@ -251,7 +251,8 @@ a { text-decoration: none; color: inherit; }
 .hero {
   position: relative;
   background:
-    linear-gradient(135deg, #0f3b5c 0%, #1a4d71 100%);
+    linear-gradient(rgba(11, 41, 66, 0.7), rgba(11, 41, 66, 0.7)),
+    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
   min-height: 620px;
   display: flex;
   align-items: center;
@@ -434,7 +435,63 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 1rem;
 }
 
-/* Service Featured Grid */
+/* ==================== CLIENTS LOGO GRID ==================== */
+.clients-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.client-logo-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.client-logo-card:hover {
+  box-shadow: 0 16px 40px rgba(12, 32, 52, 0.15);
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.client-logo-placeholder {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(15, 59, 92, 0.05) 0%, rgba(216, 154, 39, 0.05) 100%);
+  border: 2px dashed var(--border);
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.client-logo-placeholder img {
+  max-width: 90%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.client-logo-card h3 {
+  color: var(--primary);
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.client-logo-card p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ==================== SERVICE FEATURED GRID ==================== */
 .services-featured-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -832,6 +889,10 @@ a { text-decoration: none; color: inherit; }
     height: 1rem;
     background: linear-gradient(180deg, var(--accent), transparent);
   }
+
+  .clients-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 980px) {
@@ -857,6 +918,10 @@ a { text-decoration: none; color: inherit; }
 
   .dropdown-menu a {
     padding: 1rem;
+  }
+
+  .clients-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -979,5 +1044,13 @@ a { text-decoration: none; color: inherit; }
 
   .lifecycle-step p {
     font-size: 0.75rem;
+  }
+
+  .clients-logo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-logo-placeholder {
+    height: 100px;
   }
 }
