@@ -252,7 +252,7 @@ a { text-decoration: none; color: inherit; }
 .hero {
   position: relative;
   background: linear-gradient(135deg, #0f3b5c 0%, #1a4d71 50%, #0b2942 100%);
-  min-height: 620px;
+  min-height: 800px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -306,8 +306,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-logo-box {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
   display: flex;
@@ -992,8 +992,8 @@ a { text-decoration: none; color: inherit; }
   }
 
   .hero-logo-box {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
 
   .hero-copy {
@@ -1135,7 +1135,7 @@ a { text-decoration: none; color: inherit; }
   }
 
   .hero {
-    min-height: 520px;
+    min-height: 650px;
   }
 
   .hero-content {
@@ -1144,8 +1144,8 @@ a { text-decoration: none; color: inherit; }
   }
 
   .hero-logo-box {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 
   .hero-copy h1 {
