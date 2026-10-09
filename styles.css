@@ -465,6 +465,7 @@ a { text-decoration: none; color: inherit; }
   gap: 1rem;
 }
 
+
 /* Animations */
 @keyframes slideInLeft {
   from {
