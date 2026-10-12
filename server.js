@@ -14,10 +14,12 @@ const PORT = process.env.PORT || 3000;
 
 // Configure nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.mail.yahoo.com",
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.EMAIL_USER || "morak6@yahoo.co.uk",
-    pass: process.env.EMAIL_PASSWORD, // Use app password for Gmail
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
 
