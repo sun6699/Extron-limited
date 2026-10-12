@@ -12,6 +12,12 @@ const newsletterForm = document.getElementById("newsletterForm");
 const formStatus = document.getElementById("formStatus");
 const newsletterStatus = document.getElementById("newsletterStatus");
 
+const API_BASE_URL =
+  (typeof window !== "undefined" && window.API_BASE_URL) ||
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? ""
+    : "https://extron-nigeria.herokuapp.com");
+
 if (contactForm) {
   contactForm.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -36,7 +42,7 @@ if (contactForm) {
     }
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +100,7 @@ if (newsletterForm) {
     }
 
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch(`${API_BASE_URL}/api/newsletter`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

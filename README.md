@@ -117,6 +117,7 @@ Gmail requires app passwords instead of regular passwords for security reasons w
 - `EMAIL_PASSWORD`: 16-character app password generated in Gmail settings
 - `CONTACT_EMAIL`: Where contact form submissions are received (morak6@yahoo.co.uk)
 - `PORT`: Server port (default: 3000)
+- `API_BASE_URL`: Deployed API base URL (https://extron-nigeria.herokuapp.com)
 
 ## Troubleshooting
 
