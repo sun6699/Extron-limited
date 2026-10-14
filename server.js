@@ -43,8 +43,8 @@ app.post("/api/contact", async (req, res) => {
 
     // Email to site owner
     const mailOptions = {
-      from: process.env.EMAIL_USER || "morak6@yahoo.co.uk",
-      to: process.env.CONTACT_EMAIL || "morak6@yahoo.co.uk",
+      from: process.env.EMAIL_USER || "akanfemi1@yahoo.com",
+      to: process.env.CONTACT_EMAIL || "akanfemi1@yahoo.com",
       subject: `New Contact Form Submission: ${subject || "No Subject"}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -62,7 +62,7 @@ app.post("/api/contact", async (req, res) => {
 
     // Optional: Send confirmation email to visitor
     const confirmationEmail = {
-      from: process.env.EMAIL_USER || "morak6@yahoo.co.uk",
+      from: process.env.EMAIL_USER || "akanfemi1@yahoo.com",
       to: email,
       subject: "Thank you for contacting Extron Nigeria Limited",
       html: `
@@ -104,8 +104,8 @@ app.post("/api/newsletter", async (req, res) => {
 
     // Email notification to owner
     const mailOptions = {
-      from: process.env.EMAIL_USER || "morak6@yahoo.co.uk",
-      to: process.env.CONTACT_EMAIL || "morak6@yahoo.co.uk",
+      from: process.env.EMAIL_USER || "akanfemi1@yahoo.com",
+      to: process.env.CONTACT_EMAIL || "akanfemi1@yahoo.com",
       subject: "New Newsletter Subscription",
       html: `
         <h2>New Newsletter Subscriber</h2>
