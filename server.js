@@ -23,6 +23,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+function escapeHtml(str = "") {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 // Route to serve index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
@@ -41,6 +50,11 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeSubject = escapeHtml(subject || "No Subject");
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
     // Email to site owner
     const mailOptions = {
       from: process.env.EMAIL_USER || "akanfemi1@yahoo.com",
@@ -48,13 +62,12 @@ app.post("/api/contact", async (req, res) => {
       subject: `New Contact Form Submission: ${subject || "No Subject"}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject || "No Subject"}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Subject:</strong> ${safeSubject}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${safeMessage}</p>
       `,
-      replyTo: email,
     };
 
     // Send email
@@ -67,10 +80,10 @@ app.post("/api/contact", async (req, res) => {
       subject: "Thank you for contacting Extron Nigeria Limited",
       html: `
         <h2>Thank You!</h2>
-        <p>Dear ${name},</p>
+        <p>Dear ${safeName},</p>
         <p>We have received your message and will get back to you shortly.</p>
         <p><strong>Your Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${safeMessage}</p>
         <p>Best regards,<br>Extron Nigeria Limited Team</p>
       `,
     };
@@ -109,7 +122,7 @@ app.post("/api/newsletter", async (req, res) => {
       subject: "New Newsletter Subscription",
       html: `
         <h2>New Newsletter Subscriber</h2>
-        <p><strong>Email:</strong> ${newsletterEmail}</p>
+        <p><strong>Email:</strong> ${escapeHtml(newsletterEmail)}</p>
         <p>Date: ${new Date().toLocaleString()}</p>
       `,
     };
